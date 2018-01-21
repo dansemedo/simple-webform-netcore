@@ -1,2 +1,2 @@
 # simple-webform-netcore
-A Simple WebForm that generates a .csv ouput
+A Simple WebForm that generates a .csv output
