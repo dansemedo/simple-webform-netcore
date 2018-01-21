@@ -1,0 +1,5 @@
+﻿form p label {
+    display: block !important;
+    float: left !important;
+    width: 100px !important;
+}
