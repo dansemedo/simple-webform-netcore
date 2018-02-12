@@ -15,7 +15,11 @@ namespace WebForm.Controllers
         public IActionResult Index()
         {
 
+            return View();
+        }
 
+        public IActionResult Contatos()
+        {
 
             return View();
         }
@@ -29,20 +33,18 @@ namespace WebForm.Controllers
         {
             string messages = message;
             string names = name;
-            string surnames = surname;
             string emails = email;
             string phones = phone;
 
             using (StreamWriter sw = new StreamWriter(@"..\\wwwroot\\wwwroot\\Contatos.csv", true))
             {
                
-                sw.WriteLine($"nome: {names} ; sobrenome: {surnames} ; telefone: {phones} ; email: { emails} ; mensagem: { messages} horario: { DateTime.Now} ");
+                sw.WriteLine($"nome: {names} ; telefone: {phones} ; email: { emails} ; mensagem: { messages} horario: { DateTime.Now} ");
             }
 
 
             ViewBag.messages = messages;
             ViewBag.names = name;
-            ViewBag.surnames = surname;
             ViewBag.emails = email;
             ViewBag.phones = phone;
 
