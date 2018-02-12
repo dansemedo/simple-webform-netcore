@@ -29,25 +29,21 @@ namespace WebForm.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        public IActionResult Results([FromQuery] string name, string surname, string email, string phone, string message)
+        public IActionResult Results([FromQuery] string name, string surname, string email, string phone, string message, string services)
         {
             string messages = message;
             string names = name;
             string emails = email;
             string phones = phone;
+            string servicesList = services;
 
             using (StreamWriter sw = new StreamWriter(@"..\\wwwroot\\wwwroot\\Contatos.csv", true))
             {
                
-                sw.WriteLine($"nome: {names} ; telefone: {phones} ; email: { emails} ; mensagem: { messages} horario: { DateTime.Now} ");
+                sw.WriteLine($"nome: {names} ; telefone: {phones} ; email: { emails} ; servico: { servicesList}; mensagem: { messages}; horario: { DateTime.Now} ");
             }
 
-
-            ViewBag.messages = messages;
             ViewBag.names = name;
-            ViewBag.emails = email;
-            ViewBag.phones = phone;
-
 
             return View();
 
